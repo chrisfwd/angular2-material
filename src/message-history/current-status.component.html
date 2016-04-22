@@ -1,0 +1,9 @@
+﻿<div *ngIf="status">
+    <p>who: {{status.who}}</p>
+    <p>when: {{status.when | date:'medium'}}</p>
+</div>
+
+<button class="btn" *ngIf="status && status.enabled" (click)="toggleMessageFlow($event)"><i class="material-icons left">pause_circle_filled</i>Pause messaging</button>
+<button class="btn" *ngIf="status && !status.enabled" (click)="toggleMessageFlow($event)"><i class="material-icons left">play_circle_filled</i>Resume messaging</button>
+
+<button class="btn" (click)="purge($event)"><i class="material-icons left">delete</i>Clear messages</button>

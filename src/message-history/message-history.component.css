@@ -1,0 +1,47 @@
+@-webkit-keyframes teal-fade {
+  0% {
+    background: #26a69a;
+  }
+  100% {
+    background: none;
+  }
+}
+@keyframes teal-fade {
+  0% {
+    background: #26a69a;
+  }
+  100% {
+    background: none;
+  }
+}
+ .highlight {
+  -webkit-animation: teal-fade 1s ease-in 1;
+  animation: teal-fade 1s ease-in 1;
+}
+
+.collapsible {
+  padding-bottom: 10px;
+}
+
+.collapsible li {
+  padding-bottom: 0;
+}
+
+.collapsible-header {
+  background-color: transparent;
+  line-height: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-bottom: none;
+  border-radius: 2px;
+}
+
+.collapsible-header:hover {
+  background-color: #26a69a;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.collapsible-body {
+  border-top: 1px solid #ddd;
+}
+
+/*# sourceMappingURL=message-history.component.css.map */

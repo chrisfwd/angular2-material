@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CrMin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>-->
+
+    <!-- Load Styles -->
+    <link rel="stylesheet" type="text/css" href="app/assets/main.css" />
+    <link rel="stylesheet" href="app/lib/materialize.min.css">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="app/lib/es6-shim.min.js"></script>
+    <script src="app/lib/system-polyfills.js"></script>
+    <script src="app/lib/shims_for_IE.js"></script>
+
+    <script src="app/lib/angular2-polyfills.js"></script>
+    <script src="app/lib/system.src.js"></script>
+    <script src="app/lib/Rx.js"></script>
+    <script src="app/lib/angular2.dev.js"></script>
+    <script src="app/lib/router.dev.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            baseUrl: "app",
+            //map: {
+            //},
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            },
+            paths: {
+                "jquery": "app/lib/jquery.min.js",
+                "signalr/core": "app/lib/jquery.signalR-2.2.0.min.js",
+                "signalr/hubs": "@Model.Uri/signalr/hubs?",
+                /*this is only necessary for hubs.ts*/
+                "signalr/hubs/url": "@Model.Uri/signalr/",
+                "materialize": "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js",
+                "angular2-materialize": "app/lib/index.js",
+                "materialize-directive": "app/lib/materialize-directive.js"
+            },
+            meta: {
+                "jquery": {
+                    format: "global",
+                    exports: "$"
+                },
+                "signalr/core": {
+                    deps: ["jquery"],
+                    format: "global",
+                    exports: "$.connection"
+                },
+                "signalr/hubs": {
+                    format: "global",
+                    deps: ["signalr/core"]
+                },
+                "materialize": {
+                    format: "global",
+                    deps: ["jquery"],
+                    exports: ""
+                },
+                "angular2-materialize": {
+                    format: "cjs",
+                    deps: ["materialize", "materialize-directive"],
+                },
+                "materialize-directive": {
+                    format: "cjs"
+                }
+            }
+        });
+        System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+
+</head>
+<body>
+
+    <crmin>Loading...</crmin>
+
+</body>
+</html>
